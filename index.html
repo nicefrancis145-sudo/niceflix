@@ -1,26 +1,38 @@
-import React, { useEffect, useState } from "react";
-import { getFeaturedVideos } from "../api";
 
-function Home() {
-  const [videos, setVideos] = useState([]);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MyFlix - Home</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header>
+    <h1>MyFlix</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="subscribe.html">Subscribe</a>
+      <a href="support.html">Support</a>
+    </nav>
+  </header>
 
-  useEffect(() => {
-    getFeaturedVideos().then(setVideos);
-  }, []);
+  <section class="hero">
+    <h2>Unlimited Movies, TV Shows, and More</h2>
+    <button onclick="location.href='watch.html'">Watch Now</button>
+  </section>
 
-  return (
-    <div>
-      <h1>Featured Movies & Shows</h1>
-      <div className="video-grid">
-        {videos.map(video => (
-          <div key={video._id} className="video-card">
-            <img src={video.thumbnailUrl} alt={video.title} />
-            <h3>{video.title}</h3>
-          </div>
-        ))}
-      </div>
+  <section class="featured">
+    <h3>Featured</h3>
+    <div class="movie-row">
+      <img src="https://via.placeholder.com/150x220?text=Movie+1" />
+      <img src="https://via.placeholder.com/150x220?text=Movie+2" />
+      <img src="https://via.placeholder.com/150x220?text=Movie+3" />
     </div>
-  );
-}
+  </section>
 
-export default Home;
+  <footer>
+    <p>&copy; 2025 MyFlix</p>
+  </footer>
+</body>
+</html>
